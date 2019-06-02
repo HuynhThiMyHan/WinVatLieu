@@ -1,0 +1,7 @@
+F:\ĐATN\DATN_QuanTri\BLL\bin\Debug\BLL.dll
+F:\ĐATN\DATN_QuanTri\BLL\bin\Debug\BLL.pdb
+F:\ĐATN\DATN_QuanTri\BLL\obj\Debug\BLL.dll
+F:\ĐATN\DATN_QuanTri\BLL\obj\Debug\BLL.pdb
+F:\ĐATN\DATN_QuanTri\BLL\bin\Debug\DAL.dll
+F:\ĐATN\DATN_QuanTri\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\ĐATN\DATN_QuanTri\BLL\bin\Debug\DAL.pdb
