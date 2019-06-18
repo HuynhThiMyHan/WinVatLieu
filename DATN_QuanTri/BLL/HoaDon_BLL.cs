@@ -17,9 +17,9 @@ namespace BLL
             return hd.loadHD();
         }
 
-        public int capnhatHD(String mahd, DateTime ngaylap, Double giamgia, Double tongtien, String tenkh, String tinhtrang)
+        public int suaHD(String mahd, String makh, DateTime ngaylap, Double giamgia, String tenkh, String diachi, String sdt, Double tongtien, String tinhtrang)
         {
-            return hd.capnhat(mahd, ngaylap, giamgia, tongtien, tenkh, tinhtrang);
+            return hd.suaHD(mahd, makh, ngaylap, giamgia, tenkh, diachi, sdt, tongtien, tinhtrang);
         }
     }
 }

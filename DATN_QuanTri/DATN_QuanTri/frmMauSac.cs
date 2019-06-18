@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace DATN_QuanTri
@@ -25,6 +24,8 @@ namespace DATN_QuanTri
 
         private void frmMauSac_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet1.NHANVIEN' table. You can move, or remove it, as needed.
+            this.nHANVIENTableAdapter.Fill(this.dataSet1.NHANVIEN);
             txtmamau.Enabled = false;
             gridControl1.DataSource = ms.loaddl();
             btnLuu.Enabled = false;
@@ -35,6 +36,7 @@ namespace DATN_QuanTri
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            txtmamau.Text = tangmaTuDong();
             txtmamau.Enabled = false;
             flag_Them = 1;
             btnLuu.Enabled = true;

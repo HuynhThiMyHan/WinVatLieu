@@ -124,6 +124,15 @@
   <data name="boproductgroup_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boproductgroup_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="currency_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\currency_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="savetheme_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\savetheme_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="currency_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\currency_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="add_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,6 +144,9 @@
   </data>
   <data name="initialstate_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\initialstate_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,7 +172,7 @@
   <data name="reviewers_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reviewers_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="currency_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\currency_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="printer_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\printer_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

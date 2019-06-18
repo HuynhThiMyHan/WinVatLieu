@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMauSac));
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
@@ -41,12 +42,17 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtmamau = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.dataSet1 = new DATN_QuanTri.DataSet1();
+            this.nHANVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nHANVIENTableAdapter = new DATN_QuanTri.DataSet1TableAdapters.NHANVIENTableAdapter();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txttenmau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmamau.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHANVIENBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnThoat
@@ -173,6 +179,20 @@
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Mã màu";
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nHANVIENBindingSource
+            // 
+            this.nHANVIENBindingSource.DataMember = "NHANVIEN";
+            this.nHANVIENBindingSource.DataSource = this.dataSet1;
+            // 
+            // nHANVIENTableAdapter
+            // 
+            this.nHANVIENTableAdapter.ClearBeforeFill = true;
+            // 
             // frmMauSac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +215,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txttenmau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtmamau.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHANVIENBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -213,5 +235,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtmamau;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource nHANVIENBindingSource;
+        private DataSet1TableAdapters.NHANVIENTableAdapter nHANVIENTableAdapter;
     }
 }

@@ -153,13 +153,7 @@ namespace DATN_QuanTri
             ViewChildForm(lh);
         }
 
-        private void btnLoaikh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            frmLoaiKH lkh = new frmLoaiKH();
-            lkh.Name = "frmLoaiKH";
-            ViewChildForm(lkh);
-        }
-
+     
         private void btnDatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmDatHang dh = new frmDatHang();
@@ -176,18 +170,19 @@ namespace DATN_QuanTri
 
         private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DialogResult r = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if(r==DialogResult.OK)
+            frmTrangChu fm = new frmTrangChu();
+            DialogResult r = MessageBox.Show("Bạn có muốn thoát", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (r == DialogResult.OK)
             {
                 this.Close();
-                frmDangNhap dn = new frmDangNhap();
-                dn.ShowDialog();
-                
             }
             else
             {
-
+               
+                this.Hide();
+                fm.ShowDialog();
             }
+
         }
 
         private void btnQuycach_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

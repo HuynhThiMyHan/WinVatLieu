@@ -3,3 +3,8 @@ F:\ĐATN\DATN_QuanTri\DAL\bin\Debug\DAL.pdb
 F:\ĐATN\DATN_QuanTri\DAL\obj\Debug\DAL.dll
 F:\ĐATN\DATN_QuanTri\DAL\obj\Debug\DAL.pdb
 F:\ĐATN\DATN_QuanTri\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\myhan\Downloads\DATN_QuanTri\DAL\bin\Debug\DAL.dll
+C:\Users\myhan\Downloads\DATN_QuanTri\DAL\bin\Debug\DAL.pdb
+C:\Users\myhan\Downloads\DATN_QuanTri\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\myhan\Downloads\DATN_QuanTri\DAL\obj\Debug\DAL.dll
+C:\Users\myhan\Downloads\DATN_QuanTri\DAL\obj\Debug\DAL.pdb

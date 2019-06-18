@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace DATN_QuanTri
 {
@@ -28,7 +28,7 @@ namespace DATN_QuanTri
             btnLuu.Enabled = true;
             btnSua.Enabled = btnThem.Enabled = false;
             txtMahang.Enabled = txttenhang.Enabled = txtgiaban.Enabled = txtgianhap.Enabled = txtluotxem.Enabled = cbomausac.Enabled = txtmota.Enabled = dateTimePicker2.Enabled = txtsoluong.Enabled = true;
-            cbodvt.Enabled = cbomahang.Enabled = cbotinhtrang.Enabled =txthinh.Enabled=true;
+            cbodvt.Enabled = cbomahang.Enabled = cbotinhtrang.Enabled =txtHinh.Enabled=true;
         }
         private void simpleButton5_Click(object sender, EventArgs e)
         {
@@ -78,6 +78,7 @@ namespace DATN_QuanTri
         }
         private void frmHangHoa_Load(object sender, EventArgs e)
         {
+   
             gridControl1.DataSource = hh.loadDL();
 
             doDL(cbomausac, ms.loaddl(), "MAMAU", "TENMAU");
@@ -85,15 +86,15 @@ namespace DATN_QuanTri
 
             btnLuu.Enabled = false;
             btnThem.Enabled = btnSua.Enabled = true;
-            txtluotxem.Enabled=dateTimePicker2.Enabled=cbotinhtrang.Enabled= txthinh.Enabled = txtMahang.Enabled = txttenhang.Enabled = txtgiaban.Enabled = txtgianhap.Enabled = cbomausac.Enabled = txtmota.Enabled =  txtsoluong.Enabled = false;
+            txtluotxem.Enabled=dateTimePicker2.Enabled=cbotinhtrang.Enabled= txtHinh.Enabled = txtMahang.Enabled = txttenhang.Enabled = txtgiaban.Enabled = txtgianhap.Enabled = cbomausac.Enabled = txtmota.Enabled =  txtsoluong.Enabled = false;
             cbodvt.Enabled = cbomahang.Enabled =  false;
             txtMahang.Enabled = false;
-            txtMahang.Text = tangmaTuDong();
-          
+            txtMahang.Text = tangmaTuDong();  
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            txtMahang.Text = tangmaTuDong();
             flag_Them = 1;
             txtMahang.Enabled = false;
             khoaControl();
@@ -104,7 +105,7 @@ namespace DATN_QuanTri
             txtsoluong.ResetText();
             txttenhang.ResetText();
             cbodvt.ResetText();
-            cbomahang.ResetText();
+            txtMahang.Enabled = false;
         // txthinh.Text= txtnoibat.Text= txtluotxem.Text = cbotinhtrang.Text = "0";
          //  txtluotxem.Enabled = txtnoibat.Enabled = txthinh.Enabled = cbotinhtrang.Enabled = false;
         }
@@ -118,7 +119,7 @@ namespace DATN_QuanTri
                 DialogResult r = MessageBox.Show("Bạn có muốn XÓA ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
                 {
-                     hh.xoaHH(txtMahang.Text,txttenhang.Text,cbomahang.Text,cbodvt.Text,txtmota.Text,txthinh.Text,cbomausac.Text,Double.Parse(txtgianhap.Text), Double.Parse(txtgiaban.Text),DateTime.Parse(dateTimePicker1.Text),int.Parse(txtsoluong.Text),dateTimePicker2.Text,int.Parse(txtluotxem.Text),cbotinhtrang.Text);
+                     hh.xoaHH(txtMahang.Text,txttenhang.Text,cbomahang.Text,cbodvt.Text,txtmota.Text,txtHinh.Text,cbomausac.Text,Double.Parse(txtgianhap.Text), Double.Parse(txtgiaban.Text),DateTime.Parse(dateTimePicker1.Text),int.Parse(txtsoluong.Text),dateTimePicker2.Text,int.Parse(txtluotxem.Text),cbotinhtrang.Text);
                     gridControl1.DataSource = hh.loadDL();
                 }
             }
@@ -135,7 +136,7 @@ namespace DATN_QuanTri
             {
                 try
                 {
-                    int t = hh.themHH(txtMahang.Text, txttenhang.Text, cbomahang.Text, cbodvt.Text, txtmota.Text,txthinh.Text, cbomausac.Text, Double.Parse(txtgianhap.Text), Double.Parse(txtgiaban.Text), DateTime.Parse(dateTimePicker1.Text),int.Parse( txtsoluong.Text), dateTimePicker2.Text,int.Parse(txtluotxem.Text), cbotinhtrang.Text);
+                    int t = hh.themHH(txtMahang.Text, txttenhang.Text, cbomahang.Text, cbodvt.Text, txtmota.Text,txtHinh.Text, cbomausac.Text, Double.Parse(txtgianhap.Text), Double.Parse(txtgiaban.Text), DateTime.Parse(dateTimePicker1.Text),int.Parse( txtsoluong.Text), dateTimePicker2.Text,int.Parse(txtluotxem.Text), cbotinhtrang.Text);
                     if (t == 1)
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 }
@@ -148,7 +149,7 @@ namespace DATN_QuanTri
             flag_Sua = flag_Them = 0;
             gridControl1.DataSource = hh.loadDL();
             btnThem.Enabled = btnSua.Enabled = true;
-            txtMahang.Enabled = txttenhang.Enabled = cbomahang.Enabled = cbodvt.Enabled = txtmota.Enabled = txthinh.Enabled = cbomausac.Enabled = txtgianhap.Enabled = txtgiaban.Enabled = txtsoluong.Enabled = dateTimePicker2.Enabled = txtluotxem.Enabled = cbotinhtrang.Enabled = false; ;
+            txtMahang.Enabled = txttenhang.Enabled = cbomahang.Enabled = cbodvt.Enabled = txtmota.Enabled = txtHinh.Enabled = cbomausac.Enabled = txtgianhap.Enabled = txtgiaban.Enabled = txtsoluong.Enabled = dateTimePicker2.Enabled = txtluotxem.Enabled = cbotinhtrang.Enabled = false; ;
             txtMahang.Enabled = true;
         }
 
@@ -177,7 +178,7 @@ namespace DATN_QuanTri
             cbomahang.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MALOAI").ToString();
             cbodvt.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DONVITINH").ToString();
             txtmota.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MOTA").ToString();
-            txthinh.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "HINH").ToString();
+            txtHinh.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "HINH").ToString();
             cbomausac.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MAU").ToString();
             txtgianhap.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "GIANHAP").ToString();
             txtgiaban.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "GIABAN").ToString();
@@ -188,7 +189,7 @@ namespace DATN_QuanTri
             cbotinhtrang.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TINHTRANG").ToString();
         }
 
-        private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        private void gridView1_RowCellStyle_1(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
             if (e.RowHandle >= 0)
             {
@@ -197,6 +198,56 @@ namespace DATN_QuanTri
                     e.Appearance.BackColor = Color.CornflowerBlue;
                 }
             }
+        }
+
+        private void btnChonhinh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Title = "Browse Text Files",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "txt",
+                Filter = "Windows Bitmap|*.bmp|JPEG Image|*.jpg|All Files|*.*",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtHinh.Text = openFileDialog1.FileName;
+                Image img = Image.FromFile(openFileDialog1.FileName);
+                pic_Hinh.SizeMode = PictureBoxSizeMode.Zoom;
+                pic_Hinh.Image = img;
+                //StreamWriter write = new StreamWriter(txtHinh.Text.Trim());
+                //write.WriteLine();
+                //write.Close();
+
+            }
+
+        }
+
+        private void gridControl1_Click_1(object sender, EventArgs e)
+        {
+            txtMahang.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MAHANG").ToString();
+            txttenhang.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TENHANG").ToString();
+            cbomahang.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MALOAI").ToString();
+            cbodvt.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DONVITINH").ToString();
+            txtmota.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MOTA").ToString();
+            txtHinh.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "HINH").ToString();
+            cbomausac.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MAU").ToString();
+            txtgianhap.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "GIANHAP").ToString();
+            txtgiaban.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "GIABAN").ToString();
+            dateTimePicker1.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "NGAYTAO").ToString();
+            txtsoluong.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "SOLUONG").ToString();
+            dateTimePicker2.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "NOIBAT").ToString();
+            txtluotxem.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "LUOTXEM").ToString();
+            cbotinhtrang.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TINHTRANG").ToString();
         }
     }
 }

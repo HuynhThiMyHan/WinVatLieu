@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VATLIEULOTSANModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CTPHIEUGIAO">
+          <Key>
+            <PropertyRef Name="MAPHIEUGIAO" />
+            <PropertyRef Name="MAHANG" />
+          </Key>
+          <Property Name="MAPHIEUGIAO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MAHANG" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MAMAU" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DONGIA" Type="float" />
+          <Property Name="SOLUONG" Type="int" />
+        </EntityType>
+        <EntityType Name="PHIEUGIAO">
+          <Key>
+            <PropertyRef Name="MAPHIEUGIAO" />
+          </Key>
+          <Property Name="MAPHIEUGIAO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MAHD" Type="varchar" MaxLength="100" />
+          <Property Name="NGAYGIAO" Type="datetime" />
+          <Property Name="DIACHIGIAO" Type="nvarchar" MaxLength="100" />
+          <Property Name="MANV" Type="varchar" MaxLength="100" />
+          <Property Name="SDTNV" Type="nchar" MaxLength="10" />
+          <Property Name="TINHTRANG" Type="nvarchar" MaxLength="10" />
+          <Property Name="NGUOINHAN" Type="nvarchar" MaxLength="100" />
+          <Property Name="SDTKH" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_CTPHIEUGIAO_PHIEUGIAO">
+          <End Role="PHIEUGIAO" Type="Self.PHIEUGIAO" Multiplicity="1" />
+          <End Role="CTPHIEUGIAO" Type="Self.CTPHIEUGIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUGIAO">
+              <PropertyRef Name="MAPHIEUGIAO" />
+            </Principal>
+            <Dependent Role="CTPHIEUGIAO">
+              <PropertyRef Name="MAPHIEUGIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VATLIEULOTSANModelStoreContainer">
+          <EntitySet Name="CTPHIEUGIAO" EntityType="Self.CTPHIEUGIAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEUGIAO" EntityType="Self.PHIEUGIAO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CTPHIEUGIAO_PHIEUGIAO" Association="Self.FK_CTPHIEUGIAO_PHIEUGIAO">
+            <End Role="PHIEUGIAO" EntitySet="PHIEUGIAO" />
+            <End Role="CTPHIEUGIAO" EntitySet="CTPHIEUGIAO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VATLIEULOTSANModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CTPHIEUGIAO">
+          <Key>
+            <PropertyRef Name="MAPHIEUGIAO" />
+            <PropertyRef Name="MAHANG" />
+          </Key>
+          <Property Name="MAPHIEUGIAO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAHANG" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAMAU" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DONGIA" Type="Double" />
+          <Property Name="SOLUONG" Type="Int32" />
+          <NavigationProperty Name="PHIEUGIAO" Relationship="Self.FK_CTPHIEUGIAO_PHIEUGIAO" FromRole="CTPHIEUGIAO" ToRole="PHIEUGIAO" />
+        </EntityType>
+        <EntityType Name="PHIEUGIAO">
+          <Key>
+            <PropertyRef Name="MAPHIEUGIAO" />
+          </Key>
+          <Property Name="MAPHIEUGIAO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAHD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NGAYGIAO" Type="DateTime" Precision="3" />
+          <Property Name="DIACHIGIAO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MANV" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SDTNV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TINHTRANG" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NGUOINHAN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SDTKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CTPHIEUGIAOs" Relationship="Self.FK_CTPHIEUGIAO_PHIEUGIAO" FromRole="PHIEUGIAO" ToRole="CTPHIEUGIAO" />
+        </EntityType>
+        <Association Name="FK_CTPHIEUGIAO_PHIEUGIAO">
+          <End Role="PHIEUGIAO" Type="Self.PHIEUGIAO" Multiplicity="1" />
+          <End Role="CTPHIEUGIAO" Type="Self.CTPHIEUGIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUGIAO">
+              <PropertyRef Name="MAPHIEUGIAO" />
+            </Principal>
+            <Dependent Role="CTPHIEUGIAO">
+              <PropertyRef Name="MAPHIEUGIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VATLIEULOTSANEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CTPHIEUGIAOs" EntityType="Self.CTPHIEUGIAO" />
+          <EntitySet Name="PHIEUGIAOs" EntityType="Self.PHIEUGIAO" />
+          <AssociationSet Name="FK_CTPHIEUGIAO_PHIEUGIAO" Association="Self.FK_CTPHIEUGIAO_PHIEUGIAO">
+            <End Role="PHIEUGIAO" EntitySet="PHIEUGIAOs" />
+            <End Role="CTPHIEUGIAO" EntitySet="CTPHIEUGIAOs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VATLIEULOTSANModelStoreContainer" CdmEntityContainer="VATLIEULOTSANEntities">
+          <EntitySetMapping Name="CTPHIEUGIAOs">
+            <EntityTypeMapping TypeName="VATLIEULOTSANModel.CTPHIEUGIAO">
+              <MappingFragment StoreEntitySet="CTPHIEUGIAO">
+                <ScalarProperty Name="MAPHIEUGIAO" ColumnName="MAPHIEUGIAO" />
+                <ScalarProperty Name="MAHANG" ColumnName="MAHANG" />
+                <ScalarProperty Name="MAMAU" ColumnName="MAMAU" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEUGIAOs">
+            <EntityTypeMapping TypeName="VATLIEULOTSANModel.PHIEUGIAO">
+              <MappingFragment StoreEntitySet="PHIEUGIAO">
+                <ScalarProperty Name="MAPHIEUGIAO" ColumnName="MAPHIEUGIAO" />
+                <ScalarProperty Name="MAHD" ColumnName="MAHD" />
+                <ScalarProperty Name="NGAYGIAO" ColumnName="NGAYGIAO" />
+                <ScalarProperty Name="DIACHIGIAO" ColumnName="DIACHIGIAO" />
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="SDTNV" ColumnName="SDTNV" />
+                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+                <ScalarProperty Name="NGUOINHAN" ColumnName="NGUOINHAN" />
+                <ScalarProperty Name="SDTKH" ColumnName="SDTKH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

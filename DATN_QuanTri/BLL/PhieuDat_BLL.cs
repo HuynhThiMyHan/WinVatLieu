@@ -16,11 +16,14 @@ namespace BLL
             return pd.loadPD();
         }
 
-        public int themPD(String mapd, String mancc, String manv, String ngaydat, float tongtien, String tinhtrang)
+        public int themPD(String mapd, String mancc, String manv, String ngaydat, String tinhtrang)
         {
-            return pd.themPD(mapd, mancc, manv, ngaydat, tongtien, tinhtrang);
+            return pd.themPD(mapd, mancc, manv, ngaydat,  tinhtrang);
         }
-
+        public int Capnhat_thanhtienPD(String mapd, Double thanhtien)
+        {
+            return pd.Capnhat_thanhtienPD(mapd, thanhtien);
+        }
 
     }
 }

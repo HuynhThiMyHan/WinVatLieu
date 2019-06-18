@@ -30,13 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhanVien));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtmatkhau = new DevExpress.XtraEditors.TextEdit();
+            this.pic_hinhanh = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnChonhinh = new DevExpress.XtraEditors.SimpleButton();
             this.date_ngaysinh = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.txt_linkhinhanh = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.cbo_quyen = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,9 +65,14 @@
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.txtHinh = new DevExpress.XtraEditors.TextEdit();
+            this.txtmatkhau = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtmatkhau.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_linkhinhanh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_hinhanh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_quyen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_gt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_email.Properties)).BeginInit();
@@ -77,17 +84,22 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHinh.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtmatkhau);
+            this.groupBox1.Controls.Add(this.txtHinh);
+            this.groupBox1.Controls.Add(this.pic_hinhanh);
+            this.groupBox1.Controls.Add(this.pictureBox3);
+            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.btnChonhinh);
             this.groupBox1.Controls.Add(this.date_ngaysinh);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txt_linkhinhanh);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cbo_quyen);
             this.groupBox1.Controls.Add(this.label9);
@@ -116,20 +128,42 @@
             this.groupBox1.Text = "Thông tin nhân viên";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // txtmatkhau
+            // pic_hinhanh
             // 
-            this.txtmatkhau.Location = new System.Drawing.Point(874, 88);
-            this.txtmatkhau.Name = "txtmatkhau";
-            this.txtmatkhau.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmatkhau.Properties.Appearance.Options.UseFont = true;
-            this.txtmatkhau.Size = new System.Drawing.Size(152, 22);
-            this.txtmatkhau.TabIndex = 35;
-            this.txtmatkhau.UseWaitCursor = true;
+            this.pic_hinhanh.Location = new System.Drawing.Point(874, 56);
+            this.pic_hinhanh.Name = "pic_hinhanh";
+            this.pic_hinhanh.Size = new System.Drawing.Size(152, 80);
+            this.pic_hinhanh.TabIndex = 8;
+            this.pic_hinhanh.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(-35, -48);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.TabIndex = 38;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(-35, -48);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.TabIndex = 37;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(-35, -48);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 36;
+            this.pictureBox1.TabStop = false;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(743, 91);
+            this.label12.Location = new System.Drawing.Point(743, 27);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(79, 21);
             this.label12.TabIndex = 34;
@@ -139,50 +173,46 @@
             // 
             this.btnChonhinh.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChonhinh.Appearance.Options.UseFont = true;
-            this.btnChonhinh.Location = new System.Drawing.Point(898, 146);
+            this.btnChonhinh.Location = new System.Drawing.Point(747, 85);
             this.btnChonhinh.Name = "btnChonhinh";
             this.btnChonhinh.Size = new System.Drawing.Size(92, 25);
             this.btnChonhinh.TabIndex = 33;
             this.btnChonhinh.Text = "Chọn hình";
+            this.btnChonhinh.Click += new System.EventHandler(this.btnChonhinh_Click);
             // 
             // date_ngaysinh
             // 
+            this.date_ngaysinh.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_ngaysinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_ngaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_ngaysinh.Location = new System.Drawing.Point(149, 76);
+            this.date_ngaysinh.Location = new System.Drawing.Point(149, 79);
             this.date_ngaysinh.Name = "date_ngaysinh";
-            this.date_ngaysinh.Size = new System.Drawing.Size(168, 29);
+            this.date_ngaysinh.Size = new System.Drawing.Size(168, 26);
             this.date_ngaysinh.TabIndex = 32;
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(874, 24);
+            this.dateTimePicker1.Location = new System.Drawing.Point(149, 140);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(152, 29);
+            this.dateTimePicker1.Size = new System.Drawing.Size(168, 26);
             this.dateTimePicker1.TabIndex = 31;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(740, 30);
+            this.label11.Location = new System.Drawing.Point(15, 146);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 21);
             this.label11.TabIndex = 30;
             this.label11.Text = "Ngày tạo";
             // 
-            // txt_linkhinhanh
-            // 
-            this.txt_linkhinhanh.Location = new System.Drawing.Point(874, 119);
-            this.txt_linkhinhanh.Name = "txt_linkhinhanh";
-            this.txt_linkhinhanh.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_linkhinhanh.Properties.Appearance.Options.UseFont = true;
-            this.txt_linkhinhanh.Size = new System.Drawing.Size(152, 22);
-            this.txt_linkhinhanh.TabIndex = 29;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(743, 122);
+            this.label10.Location = new System.Drawing.Point(744, 56);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 21);
             this.label10.TabIndex = 28;
@@ -190,7 +220,7 @@
             // 
             // cbo_quyen
             // 
-            this.cbo_quyen.Location = new System.Drawing.Point(874, 57);
+            this.cbo_quyen.Location = new System.Drawing.Point(514, 143);
             this.cbo_quyen.Name = "cbo_quyen";
             this.cbo_quyen.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_quyen.Properties.Appearance.Options.UseFont = true;
@@ -206,7 +236,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(740, 58);
+            this.label9.Location = new System.Drawing.Point(380, 144);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 21);
             this.label9.TabIndex = 26;
@@ -417,6 +447,7 @@
             this.btnSua.Size = new System.Drawing.Size(92, 37);
             this.btnSua.TabIndex = 15;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThoat
             // 
@@ -442,6 +473,28 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // txtHinh
+            // 
+            this.txtHinh.Location = new System.Drawing.Point(874, 147);
+            this.txtHinh.Name = "txtHinh";
+            this.txtHinh.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHinh.Properties.Appearance.Options.UseFont = true;
+            this.txtHinh.Size = new System.Drawing.Size(152, 22);
+            this.txtHinh.TabIndex = 39;
+            // 
+            // txtmatkhau
+            // 
+            this.txtmatkhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmatkhau.Location = new System.Drawing.Point(874, 21);
+            this.txtmatkhau.Name = "txtmatkhau";
+            this.txtmatkhau.Size = new System.Drawing.Size(152, 26);
+            this.txtmatkhau.TabIndex = 40;
+            this.txtmatkhau.UseSystemPasswordChar = true;
+            // 
             // frmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -461,8 +514,10 @@
             this.Load += new System.EventHandler(this.frmNhanVien_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtmatkhau.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_linkhinhanh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_hinhanh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_quyen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_gt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_email.Properties)).EndInit();
@@ -474,6 +529,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHinh.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -507,12 +563,17 @@
         private DevExpress.XtraEditors.ComboBoxEdit cbo_quyen;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        public DevExpress.XtraEditors.TextEdit txt_linkhinhanh;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker date_ngaysinh;
         private DevExpress.XtraEditors.SimpleButton btnChonhinh;
-        private DevExpress.XtraEditors.TextEdit txtmatkhau;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.PictureBox pic_hinhanh;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraEditors.TextEdit txtHinh;
+        private System.Windows.Forms.TextBox txtmatkhau;
     }
 }

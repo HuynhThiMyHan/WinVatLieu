@@ -141,7 +141,7 @@
             this.btnLuu.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Appearance.Options.UseFont = true;
             this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(444, 117);
+            this.btnLuu.Location = new System.Drawing.Point(396, 117);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(92, 37);
             this.btnLuu.TabIndex = 9;
@@ -178,7 +178,7 @@
             // 
             // cboloaikm
             // 
-            this.cboloaikm.Location = new System.Drawing.Point(157, 89);
+            this.cboloaikm.Location = new System.Drawing.Point(157, 86);
             this.cboloaikm.Name = "cboloaikm";
             this.cboloaikm.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboloaikm.Properties.Appearance.Options.UseFont = true;
@@ -224,7 +224,7 @@
             this.btnThem.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Appearance.Options.UseFont = true;
             this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
-            this.btnThem.Location = new System.Drawing.Point(113, 115);
+            this.btnThem.Location = new System.Drawing.Point(145, 115);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(92, 37);
             this.btnThem.TabIndex = 6;
@@ -416,6 +416,7 @@
             this.btnSua_ctkm.Size = new System.Drawing.Size(92, 37);
             this.btnSua_ctkm.TabIndex = 13;
             this.btnSua_ctkm.Text = "Sửa";
+            this.btnSua_ctkm.Click += new System.EventHandler(this.btnSua_ctkm_Click);
             // 
             // labelControl11
             // 
@@ -484,9 +485,9 @@
             this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Location = new System.Drawing.Point(7, 84);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(60, 21);
+            this.labelControl8.Size = new System.Drawing.Size(63, 21);
             this.labelControl8.TabIndex = 15;
-            this.labelControl8.Text = "Mã màu";
+            this.labelControl8.Text = "Màu sắc";
             // 
             // labelControl7
             // 
@@ -494,9 +495,9 @@
             this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.Location = new System.Drawing.Point(7, 58);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(97, 21);
+            this.labelControl7.Size = new System.Drawing.Size(72, 21);
             this.labelControl7.TabIndex = 13;
-            this.labelControl7.Text = "Mã hàng hóa";
+            this.labelControl7.Text = "Hàng hóa";
             // 
             // labelControl6
             // 

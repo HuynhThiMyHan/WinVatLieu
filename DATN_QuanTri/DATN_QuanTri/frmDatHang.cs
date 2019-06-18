@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace DATN_QuanTri
@@ -60,18 +59,35 @@ namespace DATN_QuanTri
             }
             return ma;
         }
+        public int tongtien()
+        {
+            int thanhtien = 0;
+            int tongtien = 0;
+         int sl  = int.Parse(txtsoluong_ctpd.Text);
+            int dg = int.Parse(txtgianhap_ctpd.Text);
+            thanhtien = sl * dg;
+            tongtien += thanhtien;
+            return tongtien;
+        }
         private void frmDatHang_Load(object sender, EventArgs e)
         {
-          // txtmapd_pd.Text = tangmaTuDong();
-           gridControl1.DataSource =ctpd.loadCTPD();
-            gridControl2.DataSource = pd.loadPD();
-            doDL(cboManv,nv.loadDL(),"MANV","TENNV");
-            doDL(cbomancc, ncc.loadDulieu_NCC(), "MANCC", "TENNCC");
-            doDL(cbohanghoa, hh.loadDL(), "MAHANG", "TENHANG");
-            doDL(cboMausac_ctpd, ms.loaddl(), "MAMAU", "TENMAU");
+            try
+            {
+                txtmapd_pd.Text = tangmaTuDong();
+                gridControl1.DataSource = ctpd.loadCTPD();
+                gridControl2.DataSource = pd.loadPD();
+                doDL(cboManv, nv.loadDL(), "MANV", "TENNV");
+                doDL(cbomancc, ncc.loadDulieu_NCC(), "MANCC", "TENNCC");
+                doDL(cbohanghoa, hh.loadDL(), "MAHANG", "TENHANG");
+                doDL(cboMausac_ctpd, ms.loaddl(), "MAMAU", "TENMAU");
+                doDL(cbomapd, pd.loadPD(), "MAPHIEUDAT", "MANCC");
+                dateTimePicker1.Enabled = txtgianhap_ctpd.Enabled = cbomapd.Enabled = txtmapd_pd.Enabled = txtsoluong_ctpd.Enabled = txttongtien.Enabled = cbohanghoa.Enabled = cbomancc.Enabled = cboManv.Enabled = cboMausac_ctpd.Enabled = cbotinhtrang.Enabled = false;
+            }
+            catch
+            {
 
-           dateTimePicker1.Enabled= txtgianhap_ctpd.Enabled = cbomapd.Enabled = txtmapd_pd.Enabled = txtsoluong_ctpd.Enabled = txttongtien.Enabled = cbohanghoa.Enabled = cbomancc.Enabled = cboManv.Enabled = cboMausac_ctpd.Enabled = cbotinhtrang.Enabled = false;
-        }
+            }
+            }
 
         public void doDL(ComboBox cb, DataTable db, String dis, String value)
         {
@@ -114,7 +130,7 @@ namespace DATN_QuanTri
                     {
                         txttongtien.Enabled = false;
 
-                        int t = pd.themPD(txtmapd_pd.Text, cbomancc.Text, cboManv.Text, dateTimePicker1.Text, float.Parse(txttongtien.Text), cbotinhtrang.Text);
+                        int t = pd.themPD(txtmapd_pd.Text, cbomancc.Text, cboManv.Text, dateTimePicker1.Text,  cbotinhtrang.Text);
                         if (t == 1)
                             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                         gridControl2.DataSource = pd.loadPD();
@@ -127,17 +143,15 @@ namespace DATN_QuanTri
             }
             flag_Sua = flag_Them = 0;
             txtmapd_pd.Enabled = cbomancc.Enabled = cboManv.Enabled = dateTimePicker1.Enabled =cbotinhtrang.Enabled=txttongtien.Enabled= false;
-          
+            
+           
         }
 
 
         private void btnThem_ctpd_Click(object sender, EventArgs e)
         {
-            flag_Them_ctpd = 1;
-
-            
+            flag_Them_ctpd = 1;      
             txtgianhap_ctpd.ResetText();
-            cbomapd.ResetText();
             txtsoluong_ctpd.ResetText();
             txttongtien.ResetText();
             cbohanghoa.ResetText();
@@ -158,7 +172,8 @@ namespace DATN_QuanTri
                         int t = ctpd.themctpd(cbomapd.Text, cbohanghoa.Text, cboMausac_ctpd.Text,int.Parse(txtsoluong_ctpd.Text),Double.Parse(txtgianhap_ctpd.Text));
                         if (t == 1)
                             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                        gridControl1.DataSource = ctpd.loadCTPD();
+                           gridControl1.DataSource = ctpd.loadCTPD();
+
                     }
                     catch
                     {
@@ -166,6 +181,18 @@ namespace DATN_QuanTri
                     }
                 }
             }
+       //     txttongtien.Text = ctpd.tongthanhtien(cbomapd.SelectedValue.ToString());
+       ////     gridControl2.DataSource = pd.loadPD();
+       //     if (int.Parse(ctpd.demPD(cbomapd.SelectedValue.ToString())) < 1)
+       //         txttongtien.Text = "0";
+       //     try
+       //     {
+       //         int cn = pd.Capnhat_thanhtienPD(cbomapd.SelectedValue.ToString(), Double.Parse(txttongtien.Text));
+       //     }
+       //     catch
+       //     {
+       //         MessageBox.Show("Cập nhật lại thành tiền thất bại");
+       //     }
         }
 
         private void txttongtien_KeyPress(object sender, KeyPressEventArgs e)
@@ -228,34 +255,41 @@ namespace DATN_QuanTri
 
         private void btnSua_ctpd_Click_1(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnCapnhat_Click(object sender, EventArgs e)
         {
-            doDL(cbomapd, pd.loadPD(), "MAPD", "MANV");
+            doDL(cbomapd, pd.loadPD(), "MAPD", "MANCC");
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void btnTinhtien_Click(object sender, EventArgs e)
         {
-            //for(int k=0;k<gridView1.RowCount;k++)
-            //{
-            //    DataRow drAmount = gridView1.GetDataRow(k);
-            //    _total=_total 
-            //}
-            //if (txtgianhap_ctpd.Text.Length >= 1)
-            //{
-            //    int gn = int.Parse(txtgianhap_ctpd.Text);
-            //    int sl = int.Parse(txtsoluong_ctpd.Text);
-            //    int tong = int.Parse(txttongtien.Text);
-            //    tong = gn * sl;
-
-            //}
-            //else
-            //    txttongtien.Text = "0";
+           
         }
 
-      
+        private void gridView2_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+            {
+                if (e.RowHandle % 2 == 0)
+                {
+                    e.Appearance.BackColor = Color.CornflowerBlue;
+                }
+            }
+        }
+
+        private void gridView1_RowCellStyle_1(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+            {
+                if (e.RowHandle % 2 == 0)
+                {
+                    e.Appearance.BackColor = Color.CornflowerBlue;
+                }
+            }
+        }
+
         private void gridControl1_Click_1(object sender, EventArgs e)
         {
             cbomapd.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MAPHIEUDAT").ToString();
@@ -267,6 +301,7 @@ namespace DATN_QuanTri
 
         private void btnThem_pd_Click(object sender, EventArgs e)
         {
+            txtmapd_pd.Text = tangmaTuDong();
             txttongtien.Text = "0.0";
             txttongtien.Enabled = false;
             flag_Them = 1;

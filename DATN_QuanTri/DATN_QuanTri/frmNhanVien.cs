@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 namespace DATN_QuanTri
 {
     public partial class frmNhanVien : Form
     {
-
+        XuLyAnh xla = new XuLyAnh();
         int flag_Them = 0;
         int flag_Xoa = 0;
         int flag_Sua = 0;
@@ -24,6 +24,9 @@ namespace DATN_QuanTri
             InitializeComponent();
         }
 
+
+      
+
         private void btnThoat_Click(object sender, EventArgs e)
         {
             DialogResult r = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -32,8 +35,9 @@ namespace DATN_QuanTri
         }
 
         private void btnThem_Click(object sender, EventArgs e)
-        {    
-            txtmatkhau.Enabled= txttennv.Enabled = txt_cmnd.Enabled = txt_diachi.Enabled = txt_email.Enabled = txt_sdt.Enabled = true;
+        {
+            txtmanv.Text = tangmaTuDong();
+            pic_hinhanh.Enabled=txtmatkhau.Enabled= txttennv.Enabled = txt_cmnd.Enabled = txt_diachi.Enabled = txt_email.Enabled = txt_sdt.Enabled = true;
             date_ngaysinh.Enabled = true;
             cbo_gt.Enabled = true;
             cbo_quyen.Enabled = true ;
@@ -46,7 +50,7 @@ namespace DATN_QuanTri
             date_ngaysinh.ResetText();
             cbo_gt.ResetText();
             cbo_quyen.ResetText();
-            txt_linkhinhanh.ResetText();
+            txtHinh.ResetText();
             dateTimePicker1.ResetText();
             txtmatkhau.ResetText();
         }
@@ -73,7 +77,7 @@ namespace DATN_QuanTri
             string ma = "";
             if (dt.Rows.Count <= 0)
             {
-                ma = "NV001" + DateTime.Now.ToShortDateString();
+                ma = "NV001" + DateTime.Now.ToString("ddMMyyyy");
             }
             else
             {
@@ -95,7 +99,7 @@ namespace DATN_QuanTri
         }
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
-            txt_linkhinhanh.Enabled=txtmatkhau.Enabled = txttennv.Enabled = txt_cmnd.Enabled = txt_diachi.Enabled = txt_email.Enabled = txt_sdt.Enabled = false;
+            txtHinh.Enabled=txtmatkhau.Enabled = txttennv.Enabled = txt_cmnd.Enabled = txt_diachi.Enabled = txt_email.Enabled = txt_sdt.Enabled = false;
             date_ngaysinh.Enabled = false;
             cbo_gt.Enabled = false;
             cbo_quyen.Enabled = false;
@@ -111,7 +115,7 @@ namespace DATN_QuanTri
             date_ngaysinh.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "NGAYSINH").ToString();
             cbo_quyen.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "QUYEN").ToString();
             cbo_gt.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "GIOITINH").ToString();
-            txt_linkhinhanh.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "HINH").ToString();
+            txtHinh.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "HINH").ToString();
             txt_diachi.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DIACHI").ToString();
             txt_cmnd.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "CMND").ToString();
             txt_email.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Email").ToString();
@@ -129,9 +133,20 @@ namespace DATN_QuanTri
                 {
                     try
                     {
-                        int t = nv.themNV(txtmanv.Text,txttennv.Text,date_ngaysinh.Text,cbo_quyen.Text,cbo_gt.Text,txt_linkhinhanh.Text,txt_diachi.Text,txt_cmnd.Text,txt_email.Text,DateTime.Parse(dateTimePicker1.Text),txt_sdt.Text,txtmatkhau.Text);
+                        int t = nv.themNV(txtmanv.Text,txttennv.Text,date_ngaysinh.Text,cbo_quyen.Text,cbo_gt.Text,txtHinh.Text,txt_diachi.Text,txt_cmnd.Text,txt_email.Text,DateTime.Parse(dateTimePicker1.Text),txt_sdt.Text,txtmatkhau.Text);
                         if (t == 1)
                             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        txttennv.ResetText();
+                        txt_cmnd.ResetText();
+                        txt_diachi.ResetText();
+                        txt_email.ResetText();
+                        txt_sdt.ResetText();
+                        date_ngaysinh.ResetText();
+                        cbo_gt.ResetText();
+                        cbo_quyen.ResetText();
+                        pic_hinhanh.ResetText();
+                        dateTimePicker1.ResetText();
+                        txtmatkhau.ResetText();
                     }
                     catch
                     {
@@ -174,7 +189,8 @@ namespace DATN_QuanTri
                 DialogResult r = MessageBox.Show("Bạn có muốn XÓA ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
                 {
-                    nv.xoaNV(txtmanv.Text, txttennv.Text, date_ngaysinh.Text, cbo_quyen.Text, cbo_gt.Text, txt_linkhinhanh.Text, txt_diachi.Text, txt_cmnd.Text, txt_email.Text, DateTime.Parse(dateTimePicker1.Text), txt_sdt.Text,txtmatkhau.Text);
+                    nv.xoaNV(txtmanv.Text, txttennv.Text, date_ngaysinh.Text, cbo_quyen.Text, cbo_gt.Text, txtHinh.Text, txt_diachi.Text, txt_cmnd.Text, txt_email.Text, DateTime.Parse(dateTimePicker1.Text), txt_sdt.Text,txtmatkhau.Text);
+                    MessageBox.Show("Xóa thành công");
                     gridControl1.DataSource = nv.loadDL();
                 }
             }
@@ -199,6 +215,42 @@ namespace DATN_QuanTri
                     e.Appearance.BackColor = Color.CornflowerBlue;
                 }
             }
+        }
+
+        private void btnChonhinh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Title = "Browse Text Files",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "txt",
+                Filter = "Windows Bitmap|*.bmp|JPEG Image|*.jpg|All Files|*.*",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtHinh.Text = openFileDialog1.FileName;
+                Image img = Image.FromFile(openFileDialog1.FileName);
+                pic_hinhanh.SizeMode = PictureBoxSizeMode.Zoom;
+                pic_hinhanh.Image = img;
+
+
+            }
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

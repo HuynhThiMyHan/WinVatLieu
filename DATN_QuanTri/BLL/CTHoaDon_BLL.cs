@@ -16,6 +16,11 @@ namespace BLL
         public DataTable loadCTHD()
         {
             return cthd.loadCTHD();
-                }
+        }
+
+        public int suaCTHD(String mahd, String mahang, Double dongia, Double thanhtien, int soluong)
+        {
+            return cthd.suaCTHD(mahd, mahang, dongia, thanhtien, soluong);
+        }
     }
 }

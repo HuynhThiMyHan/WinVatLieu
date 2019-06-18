@@ -18,10 +18,7 @@ namespace BLL
         {
             return pg.themPG(mapg, mahd, ngaygiao, diachigiao, tennv, sdtnguoigiao, tinhtrang, tennguoinhan, sdtnguoinhan);
         }
-        public int capnhatPG(String mapg, String mahd, String ngaygiao, String diachigiao, String tennv, String sdtnguoigiao, String tinhtrang, String tennguoinhan, String sdtnguoinhan)
-        {
-            return pg.capnhatPG(mapg, mahd,ngaygiao, diachigiao, tennv, sdtnguoigiao, tinhtrang, tennguoinhan, sdtnguoinhan);
-        }
+
 
     }
 }

@@ -14,9 +14,9 @@ namespace DAL
         {
             return hd.GetData();
         }
-       public int capnhat(String mahd, DateTime ngaylap,Double giamgia, Double tongtien, String tenkh,String tinhtrang)
+       public int suaHD(String mahd,String makh,DateTime ngaylap,Double giamgia,String tenkh,String diachi,String sdt,Double tongtien,String tinhtrang)
         {
-            return hd.CapNhatHD(mahd, ngaylap, giamgia, tongtien, tenkh, tinhtrang);
+            return hd.SuaHD(mahd, makh, ngaylap, giamgia, tenkh, diachi, sdt, tongtien, tinhtrang);
         }
 
     }

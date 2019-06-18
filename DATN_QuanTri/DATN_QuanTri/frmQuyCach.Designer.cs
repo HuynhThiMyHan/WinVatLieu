@@ -45,7 +45,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSua = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCapnhat = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtkichthuoc.Properties)).BeginInit();
@@ -98,6 +98,7 @@
             this.txtdientich.Name = "txtdientich";
             this.txtdientich.Size = new System.Drawing.Size(121, 20);
             this.txtdientich.TabIndex = 5;
+            this.txtdientich.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdientich_KeyPress);
             // 
             // labelControl3
             // 
@@ -115,6 +116,7 @@
             this.txtsoluong.Name = "txtsoluong";
             this.txtsoluong.Size = new System.Drawing.Size(121, 20);
             this.txtsoluong.TabIndex = 7;
+            this.txtsoluong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsoluong_KeyPress);
             // 
             // labelControl4
             // 
@@ -132,6 +134,7 @@
             this.txttrongluong.Name = "txttrongluong";
             this.txttrongluong.Size = new System.Drawing.Size(121, 20);
             this.txttrongluong.TabIndex = 9;
+            this.txttrongluong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttrongluong_KeyPress);
             // 
             // labelControl5
             // 
@@ -202,16 +205,17 @@
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // btnSua
+            // btnCapnhat
             // 
-            this.btnSua.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Appearance.Options.UseFont = true;
-            this.btnSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.Image")));
-            this.btnSua.Location = new System.Drawing.Point(235, 131);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(92, 37);
-            this.btnSua.TabIndex = 15;
-            this.btnSua.Text = "Sửa";
+            this.btnCapnhat.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapnhat.Appearance.Options.UseFont = true;
+            this.btnCapnhat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCapnhat.ImageOptions.Image")));
+            this.btnCapnhat.Location = new System.Drawing.Point(224, 131);
+            this.btnCapnhat.Name = "btnCapnhat";
+            this.btnCapnhat.Size = new System.Drawing.Size(117, 37);
+            this.btnCapnhat.TabIndex = 15;
+            this.btnCapnhat.Text = "Cập nhật";
+            this.btnCapnhat.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -245,7 +249,7 @@
             this.ClientSize = new System.Drawing.Size(571, 400);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnThoat);
-            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.btnCapnhat);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.gridControl1);
@@ -294,7 +298,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
-        private DevExpress.XtraEditors.SimpleButton btnSua;
+        private DevExpress.XtraEditors.SimpleButton btnCapnhat;
         private DevExpress.XtraEditors.SimpleButton btnXoa;
         private DevExpress.XtraEditors.SimpleButton btnThem;
     }

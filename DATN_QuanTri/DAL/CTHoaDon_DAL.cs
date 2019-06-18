@@ -17,5 +17,9 @@ namespace DAL
         {
             return cthd.GetData();
         }
+        public int suaCTHD(String mahd,String mahang,Double dongia,Double thanhtien,int soluong)
+        {
+            return cthd.SuaCTHD(mahd, mahang, dongia, thanhtien, soluong);
+        }
     }
 }

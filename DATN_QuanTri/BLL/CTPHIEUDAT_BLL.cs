@@ -21,5 +21,13 @@ namespace BLL
         {
             return ctpd.themctpd(mapd, mahang, mamau, soluong, gianhap);
         }
+        public String tongthanhtien(String mapd)
+        {
+            return ctpd.tongthanhtien(mapd).ToString();
+        }
+        public String demPD(String mapd)
+        {
+            return ctpd.demPD(mapd).ToString();
+        }
     }
 }

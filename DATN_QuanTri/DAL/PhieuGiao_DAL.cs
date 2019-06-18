@@ -19,10 +19,7 @@ namespace DAL
         {
             return pg.ThemPG(mapg, mahd, DateTime.Parse(ngaygiao), diachigiao, tennv, sdtnguoigiao, tinhtrang, tennguoinhan, sdtnguoinhan);
         }
-        public int capnhatPG(String mapg,String mahd,String ngaygiao,String diachigiao,String tennv,String sdtnguoigiao,String tinhtrang,String tennguoinhan,String sdtnguoinhan)
-        {
-            return pg.CapNhatPG(mapg, mahd,DateTime.Parse(ngaygiao),diachigiao, tennv, sdtnguoigiao, tinhtrang, tennguoinhan, sdtnguoinhan);
-        }
+        
 
        
     }

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace DATN_QuanTri
@@ -85,6 +84,7 @@ namespace DATN_QuanTri
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            txtMaNcc.Text = tangmaTuDong();
             flag_Them = 1;
             khoaControl();
             txtMaNcc.Enabled = false;
@@ -143,6 +143,7 @@ namespace DATN_QuanTri
                 if (r == DialogResult.Yes)
                 {
                     ncc.XoaNCC(txtMaNcc.Text, txtTenNCC.Text, txtDiaChi.Text, txtSDT.Text);
+                    MessageBox.Show("Xóa thành công");
                     gvNhaCC.DataSource = ncc.loadDulieu_NCC();
                 }
             }

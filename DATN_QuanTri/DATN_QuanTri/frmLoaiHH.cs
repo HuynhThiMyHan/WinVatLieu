@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using System.Data;
 using System.Data.SqlClient;
 namespace DATN_QuanTri
 {
@@ -43,6 +42,7 @@ namespace DATN_QuanTri
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
+            txtmaloai.Text = tangmaTuDong();
             txtmaloai.Enabled = false;
             flag_Them = 1;
             btnLuu.Enabled = true;
@@ -127,7 +127,7 @@ namespace DATN_QuanTri
             btnLuu.Enabled = false;
             btnThem.Enabled =  true;
             txtmaloai.Enabled = txttenloai.Enabled =false;
-            txtmaloai.Text = tangmaTuDong();
+          txtmaloai.Text = tangmaTuDong();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

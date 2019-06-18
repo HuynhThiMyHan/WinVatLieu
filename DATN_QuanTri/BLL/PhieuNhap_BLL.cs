@@ -16,9 +16,9 @@ namespace BLL
             return pn.loadPN();
         }
 
-        public int themPN(String mapn, String mancc, String manv, DateTime ngaynhap, Double tongtien, String tinhtrang)
+        public int themPN(String mapn,String mapd, String mancc, String manv, DateTime ngaynhap, String tinhtrang)
         {
-            return pn.thempn(mapn, mancc, manv, ngaynhap, tongtien, tinhtrang);
+            return pn.thempn(mapn,mapd, mancc, manv, ngaynhap,  tinhtrang);
         }
     }
 

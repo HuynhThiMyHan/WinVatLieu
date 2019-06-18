@@ -10,7 +10,7 @@ namespace DAL
 {
    public class KhachHang_DAL
     {
-        KHTableAdapter kh = new KHTableAdapter();
+        KHACHHANGTableAdapter kh = new KHACHHANGTableAdapter();
         public DataTable loadKH()
         {
             return kh.GetData();

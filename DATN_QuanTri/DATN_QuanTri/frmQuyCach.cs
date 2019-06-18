@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -34,7 +31,7 @@ namespace DATN_QuanTri
         {
             cbo_mahang.Enabled = txtdientich.Enabled = txtkichthuoc.Enabled = txtsoluong.Enabled = txttrongluong.Enabled = txtxuatxu.Enabled = false;
             gridControl1.DataSource = qc.loadQC();
-            doDL(cbo_mahang, hh.loadDL(), "MAHH","TENHANG");
+            doDL(cbo_mahang, hh.loadDL(), "MAHANG","TENHANG");
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -113,6 +110,29 @@ namespace DATN_QuanTri
                     e.Appearance.BackColor = Color.CornflowerBlue;
                 }
             }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            doDL(cbo_mahang, hh.loadDL(), "MAHANG", "TENHANG");
+        }
+
+        private void txtsoluong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtdientich_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txttrongluong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VATLIEULOTSANModelStoreContainer" CdmEntityContainer="VATLIEULOTSANEntities">
+    <EntitySetMapping Name="CTPHIEUGIAOs">
+      <EntityTypeMapping TypeName="VATLIEULOTSANModel.CTPHIEUGIAO">
+        <MappingFragment StoreEntitySet="CTPHIEUGIAO">
+          <ScalarProperty Name="MAPHIEUGIAO" ColumnName="MAPHIEUGIAO" />
+          <ScalarProperty Name="MAHANG" ColumnName="MAHANG" />
+          <ScalarProperty Name="MAMAU" ColumnName="MAMAU" />
+          <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUGIAOs">
+      <EntityTypeMapping TypeName="VATLIEULOTSANModel.PHIEUGIAO">
+        <MappingFragment StoreEntitySet="PHIEUGIAO">
+          <ScalarProperty Name="MAPHIEUGIAO" ColumnName="MAPHIEUGIAO" />
+          <ScalarProperty Name="MAHD" ColumnName="MAHD" />
+          <ScalarProperty Name="NGAYGIAO" ColumnName="NGAYGIAO" />
+          <ScalarProperty Name="DIACHIGIAO" ColumnName="DIACHIGIAO" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="SDTNV" ColumnName="SDTNV" />
+          <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+          <ScalarProperty Name="NGUOINHAN" ColumnName="NGUOINHAN" />
+          <ScalarProperty Name="SDTKH" ColumnName="SDTKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

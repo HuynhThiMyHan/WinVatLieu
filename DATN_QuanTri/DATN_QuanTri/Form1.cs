@@ -37,6 +37,7 @@ namespace DATN_QuanTri
         {
             txttendn.Focus();
         }
+   
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
@@ -67,13 +68,14 @@ namespace DATN_QuanTri
                         dmk.ShowDialog();
                         this.Close();
                     }
+
                     else
                     {
                         frmTrangChu fm = new frmTrangChu();
                         this.Hide();
                         fm.ShowDialog();
-                        this.Close();
                     }
+                    this.Close();
                 }
                 else
                 {   

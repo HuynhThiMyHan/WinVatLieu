@@ -48,9 +48,9 @@
             this.txttongtien = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnCapnhat = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnCapnhat = new DevExpress.XtraEditors.SimpleButton();
             this.cbomapd = new System.Windows.Forms.ComboBox();
             this.cbohanghoa = new System.Windows.Forms.ComboBox();
             this.cboMausac_ctpd = new System.Windows.Forms.ComboBox();
@@ -65,7 +65,7 @@
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
-            this.btnTongtien = new DevExpress.XtraEditors.SimpleButton();
+            this.btnTinhtien = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
@@ -104,19 +104,19 @@
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(6, 162);
+            this.gridControl2.Location = new System.Drawing.Point(13, 162);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(573, 242);
-            this.gridControl2.TabIndex = 34;
+            this.gridControl2.Size = new System.Drawing.Size(566, 242);
+            this.gridControl2.TabIndex = 36;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
-            this.gridControl2.Click += new System.EventHandler(this.gridControl2_Click);
             // 
             // gridView2
             // 
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
+            this.gridView2.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView2_RowCellStyle);
             // 
             // dateTimePicker1
             // 
@@ -230,9 +230,9 @@
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(22, 59);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(99, 21);
+            this.labelControl3.Size = new System.Drawing.Size(74, 21);
             this.labelControl3.TabIndex = 2;
-            this.labelControl3.Text = "Mã nhân viên";
+            this.labelControl3.Text = "Nhân viên";
             // 
             // labelControl2
             // 
@@ -240,9 +240,9 @@
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(22, 86);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(128, 21);
+            this.labelControl2.Size = new System.Drawing.Size(103, 21);
             this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Mã nhà cung cấp";
+            this.labelControl2.Text = "Nhà cung cấp";
             // 
             // labelControl1
             // 
@@ -260,7 +260,7 @@
             this.txttongtien.Name = "txttongtien";
             this.txttongtien.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttongtien.Properties.Appearance.Options.UseFont = true;
-            this.txttongtien.Size = new System.Drawing.Size(140, 22);
+            this.txttongtien.Size = new System.Drawing.Size(171, 22);
             this.txttongtien.TabIndex = 6;
             this.txttongtien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttongtien_KeyPress);
             // 
@@ -276,8 +276,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnCapnhat);
             this.groupBox2.Controls.Add(this.gridControl1);
+            this.groupBox2.Controls.Add(this.btnCapnhat);
             this.groupBox2.Controls.Add(this.cbomapd);
             this.groupBox2.Controls.Add(this.cbohanghoa);
             this.groupBox2.Controls.Add(this.cboMausac_ctpd);
@@ -299,6 +299,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chi tiết phiếu đặt";
             // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(6, 155);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(477, 242);
+            this.gridControl1.TabIndex = 35;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle_1);
+            // 
             // btnCapnhat
             // 
             this.btnCapnhat.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -310,23 +326,6 @@
             this.btnCapnhat.TabIndex = 34;
             this.btnCapnhat.Text = "Cập nhật";
             this.btnCapnhat.Click += new System.EventHandler(this.btnCapnhat_Click);
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Location = new System.Drawing.Point(5, 154);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(477, 242);
-            this.gridControl1.TabIndex = 33;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click_1);
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle);
             // 
             // cbomapd
             // 
@@ -447,9 +446,9 @@
             this.labelControl12.Appearance.Options.UseFont = true;
             this.labelControl12.Location = new System.Drawing.Point(22, 56);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(97, 21);
+            this.labelControl12.Size = new System.Drawing.Size(72, 21);
             this.labelControl12.TabIndex = 3;
-            this.labelControl12.Text = "Mã hàng hóa";
+            this.labelControl12.Text = "Hàng hóa";
             // 
             // labelControl11
             // 
@@ -473,17 +472,17 @@
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // btnTongtien
+            // btnTinhtien
             // 
-            this.btnTongtien.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTongtien.Appearance.Options.UseFont = true;
-            this.btnTongtien.ImageOptions.Image = global::DATN_QuanTri.Properties.Resources.currency_32x32;
-            this.btnTongtien.Location = new System.Drawing.Point(291, 427);
-            this.btnTongtien.Name = "btnTongtien";
-            this.btnTongtien.Size = new System.Drawing.Size(120, 37);
-            this.btnTongtien.TabIndex = 32;
-            this.btnTongtien.Text = "Tính tiền";
-            this.btnTongtien.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.btnTinhtien.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTinhtien.Appearance.Options.UseFont = true;
+            this.btnTinhtien.ImageOptions.Image = global::DATN_QuanTri.Properties.Resources.currency_32x321;
+            this.btnTinhtien.Location = new System.Drawing.Point(333, 428);
+            this.btnTinhtien.Name = "btnTinhtien";
+            this.btnTinhtien.Size = new System.Drawing.Size(137, 37);
+            this.btnTinhtien.TabIndex = 18;
+            this.btnTinhtien.Text = "Tính tiền";
+            this.btnTinhtien.Click += new System.EventHandler(this.btnTinhtien_Click);
             // 
             // frmDatHang
             // 
@@ -491,7 +490,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1113, 477);
-            this.Controls.Add(this.btnTongtien);
+            this.Controls.Add(this.btnTinhtien);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -550,11 +549,11 @@
         private System.Windows.Forms.ComboBox cbohanghoa;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox cbomapd;
+        private DevExpress.XtraEditors.SimpleButton btnCapnhat;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.SimpleButton btnCapnhat;
-        private DevExpress.XtraEditors.SimpleButton btnTongtien;
+        private DevExpress.XtraEditors.SimpleButton btnTinhtien;
     }
 }

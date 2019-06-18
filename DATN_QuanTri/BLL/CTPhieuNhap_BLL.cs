@@ -16,9 +16,19 @@ namespace BLL
         {
             return ctpn.loadCTPN();
         }
-        public int themCTPN(String mapn, String mapd, String mahang, String mamau, int sl)
+        public int themCTPN(String mapn, String mahang, String mamau, int sl, Double dongia)
         {
-            return ctpn.themCTPN(mapn, mapd, mahang, mamau, sl);
+            return ctpn.themCTPN(mapn, mahang, mamau, sl, dongia);
+        }
+
+        public String demMaPN(String mapn)
+        {
+            return ctpn.demMaPN(mapn).ToString();
+        }
+
+        public String tongtien(String mapn)
+        {
+            return ctpn.tongtien(mapn).ToString();
         }
     }
 }

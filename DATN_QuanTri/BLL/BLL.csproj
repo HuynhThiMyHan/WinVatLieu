@@ -46,6 +46,7 @@
     <Compile Include="CTHoaDon_BLL.cs" />
     <Compile Include="CTKhuyenMai_BLL.cs" />
     <Compile Include="CTPHIEUDAT_BLL.cs" />
+    <Compile Include="CTPhieuGiao_BLL.cs" />
     <Compile Include="CTPhieuNhap_BLL.cs" />
     <Compile Include="HangHoa_BLL.cs" />
     <Compile Include="HoaDon_BLL.cs" />

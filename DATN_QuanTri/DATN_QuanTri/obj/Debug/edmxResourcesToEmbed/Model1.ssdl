@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VATLIEULOTSANModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CTPHIEUGIAO">
+    <Key>
+      <PropertyRef Name="MAPHIEUGIAO" />
+      <PropertyRef Name="MAHANG" />
+    </Key>
+    <Property Name="MAPHIEUGIAO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MAHANG" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MAMAU" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DONGIA" Type="float" />
+    <Property Name="SOLUONG" Type="int" />
+  </EntityType>
+  <EntityType Name="PHIEUGIAO">
+    <Key>
+      <PropertyRef Name="MAPHIEUGIAO" />
+    </Key>
+    <Property Name="MAPHIEUGIAO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MAHD" Type="varchar" MaxLength="100" />
+    <Property Name="NGAYGIAO" Type="datetime" />
+    <Property Name="DIACHIGIAO" Type="nvarchar" MaxLength="100" />
+    <Property Name="MANV" Type="varchar" MaxLength="100" />
+    <Property Name="SDTNV" Type="nchar" MaxLength="10" />
+    <Property Name="TINHTRANG" Type="nvarchar" MaxLength="10" />
+    <Property Name="NGUOINHAN" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDTKH" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_CTPHIEUGIAO_PHIEUGIAO">
+    <End Role="PHIEUGIAO" Type="Self.PHIEUGIAO" Multiplicity="1" />
+    <End Role="CTPHIEUGIAO" Type="Self.CTPHIEUGIAO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUGIAO">
+        <PropertyRef Name="MAPHIEUGIAO" />
+      </Principal>
+      <Dependent Role="CTPHIEUGIAO">
+        <PropertyRef Name="MAPHIEUGIAO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VATLIEULOTSANModelStoreContainer">
+    <EntitySet Name="CTPHIEUGIAO" EntityType="Self.CTPHIEUGIAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUGIAO" EntityType="Self.PHIEUGIAO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CTPHIEUGIAO_PHIEUGIAO" Association="Self.FK_CTPHIEUGIAO_PHIEUGIAO">
+      <End Role="PHIEUGIAO" EntitySet="PHIEUGIAO" />
+      <End Role="CTPHIEUGIAO" EntitySet="CTPHIEUGIAO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

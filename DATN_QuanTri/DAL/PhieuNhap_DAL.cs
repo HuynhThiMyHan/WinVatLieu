@@ -17,9 +17,9 @@ namespace DAL
             return pn.GetData();
         }
 
-        public int thempn(String mapn,String mancc,String manv,DateTime ngaynhap,Double tongtien,String tinhtrang)
+        public int thempn(String mapn,String mapd,String mancc,String manv,DateTime ngaynhap,String tinhtrang)
         {
-            return pn.ThemPN(mapn, mancc, manv, ngaynhap, tongtien, tinhtrang);
+            return pn.ThemPN(mapn,mapd, mancc, manv, ngaynhap, tinhtrang);
         }
     }
 }

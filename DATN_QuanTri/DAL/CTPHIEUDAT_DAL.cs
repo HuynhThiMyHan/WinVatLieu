@@ -20,5 +20,14 @@ namespace DAL
         {
             return ctpd.ThemCTPD(mapd, mahang, mamau, soluong, gianhap);
         }
+
+        public String tongthanhtien(String mapd)
+        {
+            return ctpd.TONGTIEN(mapd).ToString();
+        } 
+        public String demPD(String mapd)
+        {
+            return ctpd.DemMaPD(mapd).ToString();
+        }
     }
 }

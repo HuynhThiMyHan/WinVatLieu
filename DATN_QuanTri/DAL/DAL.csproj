@@ -43,6 +43,7 @@
     <Compile Include="CTHoaDon_DAL.cs" />
     <Compile Include="CTKhuyenMai_DAL.cs" />
     <Compile Include="CTPHIEUDAT_DAL.cs" />
+    <Compile Include="CTPhieuGiao_DAL.cs" />
     <Compile Include="CTPhieuNhap_DAL.cs" />
     <Compile Include="HangHoa_DAL.cs" />
     <Compile Include="HoaDon_DAL.cs" />

@@ -186,7 +186,6 @@
             // ribbonPageGroup13
             // 
             this.ribbonPageGroup13.ItemLinks.Add(this.btnQuanLyKhachHang);
-            this.ribbonPageGroup13.ItemLinks.Add(this.btnLoaikh);
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
             this.ribbonPageGroup13.Text = "Quản Lý Khách Hàng";
             // 
@@ -206,7 +205,7 @@
             this.btnLoaikh.ImageOptions.Image = global::DATN_QuanTri.Properties.Resources.reviewers_16x16;
             this.btnLoaikh.ImageOptions.LargeImage = global::DATN_QuanTri.Properties.Resources.reviewers_32x32;
             this.btnLoaikh.Name = "btnLoaikh";
-            this.btnLoaikh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoaikh_ItemClick);
+
             // 
             // ribbonPageGroup14
             // 

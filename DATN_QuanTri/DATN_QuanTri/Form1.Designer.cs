@@ -117,6 +117,7 @@
             this.txtmatkhau.Name = "txtmatkhau";
             this.txtmatkhau.Size = new System.Drawing.Size(169, 29);
             this.txtmatkhau.TabIndex = 6;
+            this.txtmatkhau.UseSystemPasswordChar = true;
             // 
             // frmDangNhap
             // 
@@ -124,7 +125,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 224);
+            this.ClientSize = new System.Drawing.Size(385, 208);
             this.Controls.Add(this.txtmatkhau);
             this.Controls.Add(this.txttendn);
             this.Controls.Add(this.btnThoat);
